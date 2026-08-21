@@ -94,7 +94,16 @@ export async function searchHotels({
   children,
   currency,
   hotelNames = [],
+  childrenAges = [],
 }) {
+  // Google Hotels requires one age per child once children > 0 - see
+  // guests.childrenAges in config.json.
+  if (children > 0 && childrenAges.length !== children) {
+    throw new Error(
+      `guests.children is ${children} but guests.childrenAges has ${childrenAges.length} entries - they must match. Add ages (1-17) for each child in config.json.`
+    );
+  }
+
   const body = await callSerpApi({
     engine: 'google_hotels',
     q: destinationQuery,
@@ -102,6 +111,7 @@ export async function searchHotels({
     check_out_date: checkOutDate,
     adults,
     children: children || undefined,
+    children_ages: children > 0 ? childrenAges.join(',') : undefined,
     currency,
     sort_by: 3, // lowest price
   });

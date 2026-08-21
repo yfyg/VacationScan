@@ -10,7 +10,7 @@
         "Stella Palace Aqua Park Resort",
         "Elios Hill",
         "Almanac Barcelona",
-		"Gouves Water Park Holiday Resort"
+        "Gouves Water Park Holiday Resort"
       ],
       "dateRange": {
         "start": "2026-08-23",
@@ -22,7 +22,8 @@
       },
       "guests": {
         "adults": 2,
-        "children": 1
+        "children": 1,
+        "childrenAges": [7]
       },
       "currency": "USD",
       "flightOptions": {

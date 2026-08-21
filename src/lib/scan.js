@@ -59,6 +59,7 @@ export async function scanTrip(trip, { useCache = true } = {}) {
           children: trip.guests?.children ?? 0,
           currency: trip.currency ?? 'USD',
           hotelNames: trip.hotels ?? [],
+          childrenAges: trip.guests?.childrenAges ?? [],
         }),
       ]);
       return { flight: flight.cheapest, hotel: hotel.cheapest };

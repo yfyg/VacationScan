@@ -44,6 +44,7 @@ Actions → **Scan travel prices** → **Run workflow** → Run workflow.
 | `dateRange.start` / `dateRange.end` | טווח התאריכים לסריקה (YYYY-MM-DD) |
 | `nights.min` / `nights.max` | טווח מספר הלילות לשהייה |
 | `guests.adults` / `guests.children` | כמות אורחים |
+| `guests.childrenAges` | **חובה אם `children` גדול מ-0** - מערך עם גיל (1-17) לכל ילד, למשל `[8, 12]`. Google Hotels מחזיר שגיאה אם המספרים לא תואמים |
 | `flightOptions.travelClass` | economy / premium_economy / business / first |
 | `flightOptions.stops` | any / nonstop / one_or_fewer / two_or_fewer |
 | `scanLimits.maxCombosPerScan` | תקרת קומבינציות לסריקה אחת (הגנה על מכסת SerpApi - 250 חיפושים חינם בחודש) |
