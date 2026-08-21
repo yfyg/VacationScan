@@ -1,0 +1,38 @@
+{
+  "trips": [
+    {
+      "id": "barcelona-fall",
+      "label": "ברצלונה - סתיו 2026",
+      "departureAirport": "TLV",
+      "destinationAirport": "BCN",
+      "destinationQuery": "Barcelona hotels",
+      "hotels": [
+        "Hotel Arts Barcelona",
+        "W Barcelona",
+        "Almanac Barcelona"
+      ],
+      "dateRange": {
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "nights": {
+        "min": 3,
+        "max": 5
+      },
+      "guests": {
+        "adults": 2,
+        "children": 0
+      },
+      "currency": "USD",
+      "flightOptions": {
+        "type": "roundtrip",
+        "travelClass": "economy",
+        "stops": "any"
+      },
+      "scanLimits": {
+        "maxCombosPerScan": 24,
+        "cacheHours": 24
+      }
+    }
+  ]
+}

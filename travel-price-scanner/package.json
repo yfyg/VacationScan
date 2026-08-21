@@ -1,0 +1,19 @@
+{
+  "name": "travel-price-scanner",
+  "version": "1.0.0",
+  "description": "Scans Google Flights + Google Hotels (via SerpApi) for the cheapest combination of flight + hotel over a configurable date range.",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test src/lib/__tests__/*.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
