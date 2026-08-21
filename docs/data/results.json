@@ -1,0 +1,11 @@
+{
+  "generatedAt": null,
+  "trips": {
+    "placeholder": {
+      "tripId": "placeholder",
+      "label": "עדיין לא רצה סריקה",
+      "error": "זהו קובץ ראשוני. הרץ את ה-workflow (Actions → Scan travel prices → Run workflow) או המתן ללוח הזמנים הקבוע כדי לקבל תוצאות אמיתיות.",
+      "results": []
+    }
+  }
+}

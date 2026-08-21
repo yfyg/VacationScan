@@ -1,0 +1,39 @@
+{
+  "trips": [
+    {
+      "id": "crete-summer",
+      "label": "כרתים קיץ דקה 90",
+      "departureAirport": "TLV",
+      "destinationAirport": "HER",
+      "destinationQuery": "crete hotels",
+      "hotels": [
+        "Stella Palace Aqua Park Resort",
+        "Elios Hill",
+        "Almanac Barcelona",
+		"Gouves Water Park Holiday Resort"
+      ],
+      "dateRange": {
+        "start": "2026-08-23",
+        "end": "2026-08-31"
+      },
+      "nights": {
+        "min": 3,
+        "max": 4
+      },
+      "guests": {
+        "adults": 2,
+        "children": 1
+      },
+      "currency": "USD",
+      "flightOptions": {
+        "type": "roundtrip",
+        "travelClass": "economy",
+        "stops": "any"
+      },
+      "scanLimits": {
+        "maxCombosPerScan": 24,
+        "cacheHours": 24
+      }
+    }
+  ]
+}

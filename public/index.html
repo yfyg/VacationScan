@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>סורק מחירי טיסות ומלונות</title>
+<style>
+  :root {
+    --bg: #0f1720;
+    --panel: #17212b;
+    --border: #2a3644;
+    --text: #e7edf3;
+    --muted: #93a3b3;
+    --accent: #4fd1a5;
+    --accent-dark: #2f9d76;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 24px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; }
+  h1 { font-size: 1.4rem; margin-bottom: 4px; }
+  .sub { color: var(--muted); margin-bottom: 20px; font-size: 0.9rem; }
+  .controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  select, button {
+    background: var(--panel);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  button.primary { background: var(--accent); color: #06231a; border: none; font-weight: 600; }
+  button.primary:hover { background: var(--accent-dark); }
+  button:disabled { opacity: 0.5; cursor: default; }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+  }
+  .cheapest { border-color: var(--accent); }
+  .cheapest .price { color: var(--accent); font-size: 1.6rem; font-weight: 700; }
+  .meta { color: var(--muted); font-size: 0.85rem; margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  th, td { text-align: right; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  th { color: var(--muted); font-weight: 600; font-size: 0.8rem; }
+  tr.best td { color: var(--accent); font-weight: 600; }
+  .status { color: var(--muted); font-size: 0.85rem; margin-top: 10px; }
+  .error { color: #ff8787; }
+  .badge { display: inline-block; font-size: 0.7rem; padding: 2px 8px; border-radius: 999px; background: #223; color: var(--muted); margin-right: 6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>סורק מחירי טיסות + מלונות</h1>
+  <div class="sub">מבוסס על Google Flights ו-Google Hotels (דרך SerpApi), לפי קובץ הקונפיגורציה config.json</div>
+
+  <div class="controls">
+    <select id="tripSelect"></select>
+    <button id="scanBtn" class="primary">סרוק עכשיו</button>
+    <button id="clearCacheBtn">נקה מטמון</button>
+  </div>
+
+  <div id="summary"></div>
+  <div id="status" class="status"></div>
+  <div id="tableWrap"></div>
+</div>
+
+<script>
+const tripSelect = document.getElementById('tripSelect');
+const scanBtn = document.getElementById('scanBtn');
+const clearCacheBtn = document.getElementById('clearCacheBtn');
+const summaryEl = document.getElementById('summary');
+const statusEl = document.getElementById('status');
+const tableWrap = document.getElementById('tableWrap');
+
+function fmtMoney(n, currency) {
+  if (n === null || n === undefined) return '—';
+  return new Intl.NumberFormat('he-IL', { style: 'currency', currency: currency || 'USD', maximumFractionDigits: 0 }).format(n);
+}
+
+async function loadTrips() {
+  const res = await fetch('/api/trips');
+  const trips = await res.json();
+  tripSelect.innerHTML = trips.map(t => `<option value="${t.id}">${t.label}</option>`).join('');
+}
+
+async function runScan() {
+  scanBtn.disabled = true;
+  statusEl.textContent = 'סורק... זה יכול לקחת כמה עשרות שניות בסריקה ראשונה (לא ממטמון).';
+  statusEl.classList.remove('error');
+  summaryEl.innerHTML = '';
+  tableWrap.innerHTML = '';
+  try {
+    const tripId = tripSelect.value;
+    const res = await fetch(`/api/scan?tripId=${encodeURIComponent(tripId)}`);
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'שגיאה לא ידועה');
+    render(data);
+  } catch (err) {
+    statusEl.textContent = 'שגיאה: ' + err.message;
+    statusEl.classList.add('error');
+  } finally {
+    scanBtn.disabled = false;
+  }
+}
+
+function render(data) {
+  const currency = data.results[0]?.hotel ? undefined : undefined;
+  if (data.cheapest) {
+    const c = data.cheapest;
+    summaryEl.innerHTML = `
+      <div class="card cheapest">
+        <div class="price">${fmtMoney(c.totalPrice)}</div>
+        <div>הזול ביותר: ${c.checkIn} → ${c.checkOut} (${c.nights} לילות)</div>
+        <div class="meta">
+          טיסה: ${fmtMoney(c.flight?.price)} · ${c.flight?.airline || ''} ${c.flight?.flightNumbers || ''}<br/>
+          מלון: ${c.hotel?.name || '—'} · ${fmtMoney(c.hotel?.totalPrice)} סה"כ (${fmtMoney(c.hotel?.pricePerNight)}/לילה)
+        </div>
+      </div>`;
+  } else {
+    summaryEl.innerHTML = `<div class="card">לא נמצאו תוצאות עם מחיר עבור הקומבינציות שנסרקו.</div>`;
+  }
+
+  statusEl.innerHTML = `
+    נסרקו ${data.combosScanned} מתוך ${data.totalCombosConsidered} קומבינציות אפשריות
+    ${data.combosSkippedByCap ? `<span class="badge">${data.combosSkippedByCap} דולגו בגלל תקרת סריקה</span>` : ''}
+    · עודכן: ${new Date(data.generatedAt).toLocaleString('he-IL')}
+  `;
+
+  const rows = data.results.map(r => {
+    const isBest = data.cheapest && r.checkIn === data.cheapest.checkIn && r.checkOut === data.cheapest.checkOut;
+    if (r.error) {
+      return `<tr><td>${r.checkIn}</td><td>${r.checkOut}</td><td>${r.nights}</td><td colspan="4" class="error">${r.error}</td></tr>`;
+    }
+    return `<tr class="${isBest ? 'best' : ''}">
+      <td>${r.checkIn}</td>
+      <td>${r.checkOut}</td>
+      <td>${r.nights}</td>
+      <td>${fmtMoney(r.flight?.price)}</td>
+      <td>${r.hotel?.name || '—'}</td>
+      <td>${fmtMoney(r.hotel?.totalPrice)}</td>
+      <td>${fmtMoney(r.totalPrice)}</td>
+    </tr>`;
+  }).join('');
+
+  tableWrap.innerHTML = `
+    <div class="card" style="overflow-x:auto">
+      <table>
+        <thead>
+          <tr>
+            <th>צ'ק-אין</th><th>צ'ק-אאוט</th><th>לילות</th><th>מחיר טיסה</th><th>מלון</th><th>מחיר מלון (סה"כ)</th><th>סה"כ</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>`;
+}
+
+clearCacheBtn.addEventListener('click', async () => {
+  await fetch('/api/cache/clear', { method: 'POST' });
+  statusEl.textContent = 'המטמון נוקה.';
+});
+
+scanBtn.addEventListener('click', runScan);
+loadTrips().then(runScan);
+</script>
+</body>
+</html>
