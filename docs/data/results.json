@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-22T05:17:47.074Z",
+  "generatedAt": "2026-08-23T05:20:03.389Z",
   "trips": {
     "crete-summer": {
       "tripId": "crete-summer",
       "label": "כרתים קיץ דקה 90",
-      "generatedAt": "2026-08-22T05:17:47.074Z",
+      "generatedAt": "2026-08-23T05:20:03.389Z",
       "totalCombosConsidered": 11,
       "combosScanned": 11,
       "combosSkippedByCap": 0,
@@ -15,9 +15,9 @@
           "checkOut": "2026-08-26",
           "nights": 3,
           "flight": {
-            "price": 1445,
+            "price": 1385,
             "airline": "Bluebird Airways",
-            "flightNumbers": "BZ 734",
+            "flightNumbers": "BZ 740",
             "duration": 110
           },
           "hotel": null,
@@ -30,9 +30,9 @@
           "checkOut": "2026-08-27",
           "nights": 4,
           "flight": {
-            "price": 1295,
+            "price": 1235,
             "airline": "Bluebird Airways",
-            "flightNumbers": "BZ 734",
+            "flightNumbers": "BZ 740",
             "duration": 110
           },
           "hotel": null,
@@ -90,7 +90,7 @@
           "checkOut": "2026-08-29",
           "nights": 4,
           "flight": {
-            "price": 1325,
+            "price": 1564,
             "airline": "Bluebird Airways",
             "flightNumbers": "BZ 758",
             "duration": 110
@@ -105,7 +105,7 @@
           "checkOut": "2026-08-29",
           "nights": 3,
           "flight": {
-            "price": 1325,
+            "price": 1564,
             "airline": "Bluebird Airways",
             "flightNumbers": "BZ 758",
             "duration": 110
@@ -120,7 +120,7 @@
           "checkOut": "2026-08-30",
           "nights": 4,
           "flight": {
-            "price": 1194,
+            "price": 1211,
             "airline": "Bluebird Airways",
             "flightNumbers": "BZ 758",
             "duration": 110
@@ -135,9 +135,9 @@
           "checkOut": "2026-08-30",
           "nights": 3,
           "flight": {
-            "price": 1194,
+            "price": 1211,
             "airline": "Bluebird Airways",
-            "flightNumbers": "BZ 742",
+            "flightNumbers": "BZ 754",
             "duration": 110
           },
           "hotel": null,
@@ -150,9 +150,9 @@
           "checkOut": "2026-08-31",
           "nights": 4,
           "flight": {
-            "price": 1211,
+            "price": 1188,
             "airline": "Bluebird Airways",
-            "flightNumbers": "BZ 742",
+            "flightNumbers": "BZ 754",
             "duration": 110
           },
           "hotel": null,
@@ -165,7 +165,7 @@
           "checkOut": "2026-08-31",
           "nights": 3,
           "flight": {
-            "price": 1211,
+            "price": 1188,
             "airline": "Bluebird Airways",
             "flightNumbers": "BZ 742",
             "duration": 110
