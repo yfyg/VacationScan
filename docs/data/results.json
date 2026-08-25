@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-24T05:29:57.608Z",
+  "generatedAt": "2026-08-25T05:22:57.450Z",
   "trips": {
     "crete-summer": {
       "tripId": "crete-summer",
       "label": "כרתים קיץ דקה 90",
-      "generatedAt": "2026-08-24T05:29:57.608Z",
+      "generatedAt": "2026-08-25T05:22:57.450Z",
       "totalCombosConsidered": 11,
       "combosScanned": 11,
       "combosSkippedByCap": 0,
@@ -18,7 +18,7 @@
           "hotel": null,
           "totalPrice": null,
           "fromCache": false,
-          "error": "SerpApi error (google_flights): Google Flights hasn't returned any results for this query."
+          "error": "SerpApi request failed (google_flights): `outbound_date` cannot be in the past."
         },
         {
           "checkIn": "2026-08-23",
@@ -28,46 +28,36 @@
           "hotel": null,
           "totalPrice": null,
           "fromCache": false,
-          "error": "SerpApi error (google_flights): Google Flights hasn't returned any results for this query."
+          "error": "SerpApi request failed (google_hotels): `check_in_date` cannot be in the past."
         },
         {
           "checkIn": "2026-08-24",
           "checkOut": "2026-08-27",
           "nights": 3,
-          "flight": {
-            "price": 1310,
-            "airline": "Bluebird Airways",
-            "flightNumbers": "BZ 732",
-            "duration": 110
-          },
+          "flight": null,
           "hotel": null,
           "totalPrice": null,
           "fromCache": false,
-          "error": null
+          "error": "SerpApi error (google_flights): Google Flights hasn't returned any results for this query."
         },
         {
           "checkIn": "2026-08-24",
           "checkOut": "2026-08-28",
           "nights": 4,
-          "flight": {
-            "price": 995,
-            "airline": "Bluebird Airways",
-            "flightNumbers": "BZ 732",
-            "duration": 110
-          },
+          "flight": null,
           "hotel": null,
           "totalPrice": null,
           "fromCache": false,
-          "error": null
+          "error": "SerpApi error (google_flights): Google Flights hasn't returned any results for this query."
         },
         {
           "checkIn": "2026-08-25",
           "checkOut": "2026-08-28",
           "nights": 3,
           "flight": {
-            "price": 1055,
+            "price": 965,
             "airline": "Bluebird Airways",
-            "flightNumbers": "BZ 746",
+            "flightNumbers": "BZ 736",
             "duration": 110
           },
           "hotel": null,
@@ -80,9 +70,9 @@
           "checkOut": "2026-08-29",
           "nights": 4,
           "flight": {
-            "price": 1204,
+            "price": 1115,
             "airline": "Bluebird Airways",
-            "flightNumbers": "BZ 746",
+            "flightNumbers": "BZ 736",
             "duration": 110
           },
           "hotel": null,
@@ -110,7 +100,7 @@
           "checkOut": "2026-08-30",
           "nights": 4,
           "flight": {
-            "price": 1324,
+            "price": 1564,
             "airline": "Bluebird Airways",
             "flightNumbers": "BZ 758",
             "duration": 110
@@ -125,7 +115,7 @@
           "checkOut": "2026-08-30",
           "nights": 3,
           "flight": {
-            "price": 1294,
+            "price": 1534,
             "airline": "Bluebird Airways",
             "flightNumbers": "BZ 758",
             "duration": 110
@@ -140,7 +130,7 @@
           "checkOut": "2026-08-31",
           "nights": 4,
           "flight": {
-            "price": 1294,
+            "price": 995,
             "airline": "Bluebird Airways",
             "flightNumbers": "BZ 758",
             "duration": 110
@@ -155,7 +145,7 @@
           "checkOut": "2026-08-31",
           "nights": 3,
           "flight": {
-            "price": 1324,
+            "price": 995,
             "airline": "Bluebird Airways",
             "flightNumbers": "BZ 758",
             "duration": 110
