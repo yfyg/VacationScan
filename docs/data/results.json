@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-28T16:59:15.086Z",
+  "generatedAt": "2026-08-29T11:24:40.530Z",
   "trips": {
     "crete-summer": {
       "tripId": "crete-summer",
       "label": "כרתים קיץ דקה 90",
-      "generatedAt": "2026-08-28T16:59:15.085Z",
+      "generatedAt": "2026-08-29T11:24:40.530Z",
       "totalCombosConsidered": 11,
       "combosScanned": 11,
       "combosSkippedByCap": 0,
@@ -58,7 +58,7 @@
           "hotel": null,
           "totalPrice": null,
           "fromCache": false,
-          "error": "SerpApi request failed (google_hotels): `check_in_date` cannot be in the past."
+          "error": "SerpApi request failed (google_flights): `outbound_date` cannot be in the past."
         },
         {
           "checkIn": "2026-08-25",
@@ -78,7 +78,7 @@
           "hotel": null,
           "totalPrice": null,
           "fromCache": false,
-          "error": "SerpApi request failed (google_flights): `outbound_date` cannot be in the past."
+          "error": "SerpApi request failed (google_hotels): `check_in_date` cannot be in the past."
         },
         {
           "checkIn": "2026-08-26",
@@ -88,7 +88,7 @@
           "hotel": null,
           "totalPrice": null,
           "fromCache": false,
-          "error": "SerpApi request failed (google_hotels): `check_in_date` cannot be in the past."
+          "error": "SerpApi request failed (google_flights): `outbound_date` cannot be in the past."
         },
         {
           "checkIn": "2026-08-27",
@@ -98,7 +98,7 @@
           "hotel": null,
           "totalPrice": null,
           "fromCache": false,
-          "error": "SerpApi error (google_flights): Google Flights hasn't returned any results for this query."
+          "error": "SerpApi request failed (google_flights): `outbound_date` cannot be in the past."
         },
         {
           "checkIn": "2026-08-27",
@@ -108,22 +108,17 @@
           "hotel": null,
           "totalPrice": null,
           "fromCache": false,
-          "error": "SerpApi error (google_flights): Google Flights hasn't returned any results for this query."
+          "error": "SerpApi request failed (google_hotels): `check_in_date` cannot be in the past."
         },
         {
           "checkIn": "2026-08-28",
           "checkOut": "2026-08-31",
           "nights": 3,
-          "flight": {
-            "price": 2542,
-            "airline": "Aegean",
-            "flightNumbers": "A3 927, A3 200, A3 391",
-            "duration": 680
-          },
+          "flight": null,
           "hotel": null,
           "totalPrice": null,
           "fromCache": false,
-          "error": null
+          "error": "SerpApi error (google_flights): Google Flights hasn't returned any results for this query."
         }
       ]
     }
