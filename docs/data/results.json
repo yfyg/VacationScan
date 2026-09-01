@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-31T11:13:33.356Z",
+  "generatedAt": "2026-09-01T09:39:16.418Z",
   "trips": {
     "crete-summer": {
       "tripId": "crete-summer",
       "label": "כרתים קיץ דקה 90",
-      "generatedAt": "2026-08-31T11:13:33.356Z",
+      "generatedAt": "2026-09-01T09:39:16.418Z",
       "totalCombosConsidered": 11,
       "combosScanned": 11,
       "combosSkippedByCap": 0,
@@ -38,7 +38,7 @@
           "hotel": null,
           "totalPrice": null,
           "fromCache": false,
-          "error": "SerpApi request failed (google_hotels): `check_in_date` cannot be in the past."
+          "error": "SerpApi request failed (google_flights): `outbound_date` cannot be in the past."
         },
         {
           "checkIn": "2026-08-24",
@@ -68,7 +68,7 @@
           "hotel": null,
           "totalPrice": null,
           "fromCache": false,
-          "error": "SerpApi request failed (google_flights): `outbound_date` cannot be in the past."
+          "error": "SerpApi request failed (google_hotels): `check_in_date` cannot be in the past."
         },
         {
           "checkIn": "2026-08-26",
@@ -78,7 +78,7 @@
           "hotel": null,
           "totalPrice": null,
           "fromCache": false,
-          "error": "SerpApi request failed (google_flights): `outbound_date` cannot be in the past."
+          "error": "SerpApi request failed (google_hotels): `check_in_date` cannot be in the past."
         },
         {
           "checkIn": "2026-08-26",
@@ -88,7 +88,7 @@
           "hotel": null,
           "totalPrice": null,
           "fromCache": false,
-          "error": "SerpApi request failed (google_hotels): `check_in_date` cannot be in the past."
+          "error": "SerpApi request failed (google_flights): `outbound_date` cannot be in the past."
         },
         {
           "checkIn": "2026-08-27",
