@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-09T09:17:29.323Z",
+  "generatedAt": "2026-09-10T09:16:06.988Z",
   "trips": {
     "crete-summer": {
       "tripId": "crete-summer",
       "label": "כרתים קיץ דקה 90",
-      "generatedAt": "2026-09-09T09:17:29.323Z",
+      "generatedAt": "2026-09-10T09:16:06.988Z",
       "totalCombosConsidered": 11,
       "combosScanned": 11,
       "combosSkippedByCap": 0,
@@ -18,7 +18,7 @@
           "hotel": null,
           "totalPrice": null,
           "fromCache": false,
-          "error": "SerpApi request failed (google_flights): `outbound_date` cannot be in the past."
+          "error": "SerpApi request failed (google_hotels): `check_in_date` cannot be in the past."
         },
         {
           "checkIn": "2026-08-23",
@@ -38,7 +38,7 @@
           "hotel": null,
           "totalPrice": null,
           "fromCache": false,
-          "error": "SerpApi request failed (google_flights): `outbound_date` cannot be in the past."
+          "error": "SerpApi request failed (google_hotels): `check_in_date` cannot be in the past."
         },
         {
           "checkIn": "2026-08-24",
@@ -58,7 +58,7 @@
           "hotel": null,
           "totalPrice": null,
           "fromCache": false,
-          "error": "SerpApi request failed (google_hotels): `check_in_date` cannot be in the past."
+          "error": "SerpApi request failed (google_flights): `outbound_date` cannot be in the past."
         },
         {
           "checkIn": "2026-08-25",
@@ -78,7 +78,7 @@
           "hotel": null,
           "totalPrice": null,
           "fromCache": false,
-          "error": "SerpApi request failed (google_flights): `outbound_date` cannot be in the past."
+          "error": "SerpApi request failed (google_hotels): `check_in_date` cannot be in the past."
         },
         {
           "checkIn": "2026-08-26",
@@ -118,7 +118,7 @@
           "hotel": null,
           "totalPrice": null,
           "fromCache": false,
-          "error": "SerpApi request failed (google_hotels): `check_in_date` cannot be in the past."
+          "error": "SerpApi request failed (google_flights): `outbound_date` cannot be in the past."
         }
       ]
     }
